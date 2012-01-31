@@ -1,0 +1,186 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.sokolov</groupId>
+	<artifactId>microservlet</artifactId>
+	<version>1.1</version>
+	<name>microservlet</name>
+
+	<url>http://code.google.com/p/ajaxportal/</url>
+
+	<organization>
+		<name>AjaxPortal</name>
+		<url>http://code.google.com/p/ajaxportal/</url>
+	</organization>
+
+	<inceptionYear>2011</inceptionYear>
+
+	<description>
+     MicroServlet is MVC framework which implements a small Java based engine. The framework supports a action/invoike method dispatching, a form request bean building (supports REQUEST and SESSION scopes) and a JSP rendering.
+     MicroServlet framework can be used for implementation of Portlet API for Ajax Portal.
+  </description>
+
+	<licenses>
+		<license>
+			<name>Apache License 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<mailingLists>
+		<mailingList>
+			<archive>http://groups.google.com/group/ajaxportal/</archive>
+			<name>Our discussion group</name>
+			<subscribe>http://groups.google.com/group/ajaxportal/</subscribe>
+			<unsubscribe>http://groups.google.com/group/ajaxportal/</unsubscribe>
+			<post>http://groups.google.com/group/ajaxportal/</post>
+		</mailingList>
+	</mailingLists>
+
+	<developers>
+		<developer>
+			<id>01</id>
+			<name>Sergei Solokov</name>
+			<email>s-sokolov@tut.by</email>
+			<roles>
+				<role>Author</role>
+				<role>Software Architect</role>
+			</roles>
+			<organization>--</organization>
+			<organizationUrl>http://groups.google.com/group/ajaxportal/</organizationUrl>
+			<timezone></timezone>
+		</developer>
+		<developer>
+			<id>02</id>
+			<name>Helio Frota</name>
+			<email>heliofrota@gmail.com</email>
+			<organization>--</organization>
+			<organizationUrl>http://groups.google.com/group/ajaxportal/</organizationUrl>
+			<roles>
+				<role>Software Architect</role>
+			</roles>
+			<timezone></timezone>
+		</developer>
+	</developers>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0-beta-2</version>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-project-info-reports-plugin</artifactId>
+							<version>2.2</version>
+							<configuration>
+								<dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+								<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+							</configuration>
+							<!-- we can choose the reports later... -->
+							<!-- <reportSets> <reportSet> <reports> <report>dependencies</report> 
+								<report>project-team</report> <report>mailing-list</report> <report>license</report> 
+								<report>scm</report> </reports> </reportSet> </reportSets> -->
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>2.7</version>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-jxr-plugin</artifactId>
+							<version>2.1</version>
+							<configuration>
+								<aggregate>true</aggregate>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-report-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>cobertura-maven-plugin</artifactId>
+							<version>2.4</version>
+							<configuration>
+								<formats>
+									<format>html</format>
+								</formats>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<aggregate>true</aggregate>
+					<show>private</show>
+					<doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+					<docletArtifact>
+						<groupId>org.umlgraph</groupId>
+						<artifactId>doclet</artifactId>
+						<version>5.1</version>
+					</docletArtifact>
+					<additionalparam>
+						-inferrel
+						-inferdep
+						-inferdepinpackage
+						-useimports
+						-attributes
+						-visibility
+						-quiet
+						-hide java.*
+						-collpackages java.util.*
+						-qualify
+						-postfixpackage
+						-nodefontsize 9
+						-nodefontpackagesize 7
+						-compact
+					</additionalparam>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+</project>

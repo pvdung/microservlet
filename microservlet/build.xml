@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="microservlet" default="compile" basedir=".">
+    <property file="${basedir}/build.properties"/>
+
+
+    <property name="module.name" value="microservlet"/>
+
+
+    <property name="lib.dir" value="${basedir}/../../lib"/>
+    <property name="source.pack.dir" value="${basedir}/../../sources"/>
+
+    <property name="build.dir" value="${basedir}/build"/>
+    <property name="compile.dir" value="${build.dir}/classes"/>
+
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="source.pack" value="${build.dir}/${module.name}-${release}-sources"/>
+
+    <tstamp>
+        <format property="TODAY" pattern="yyyy-MM-dd" />
+    </tstamp>
+
+    <path id="build.classpath">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+
+    <target name="clean" description="cleanup module">
+        <delete failonerror="false" includeemptydirs="true">
+            <fileset dir="${build.dir}" includes="**"/>
+        </delete>
+    </target>
+
+    <target name="init" depends="clean" description="Build initialization">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${compile.dir}"/>
+    </target>
+
+    <target name="compile" depends="init,source">
+        <javac destdir="${compile.dir}" debug="on" srcdir="${src.dir}/java">
+            <classpath>
+                <path refid="build.classpath"/>
+            </classpath>
+        </javac>
+
+        <jar destfile="${build.dir}/${module.name}-${release}.jar"
+             basedir="${compile.dir}">
+            <manifest>
+                <attribute name="Product" value="${product}" />
+                <attribute name="Built-Date" value="${TODAY}"/>
+                <attribute name="Author" value="${author}" />
+                <attribute name="Product-Site" value="${site}" />
+            </manifest>
+        </jar>
+
+
+        <copy file="${build.dir}/${module.name}-${release}.jar" 
+              todir="${lib.dir}" 
+              overwrite="true"/>
+    </target>
+
+    <target name="source">           
+        <copy todir="${source.pack}/src" 
+              overwrite="true">
+            <fileset dir="${src.dir}"/>
+        </copy>
+
+        <zip basedir="${source.pack}" 
+             destfile="${source.pack}.zip"/>
+
+        <copy file="${source.pack}.zip" 
+              todir="${source.pack.dir}" 
+              overwrite="true"/>
+    </target>
+
+</project>
