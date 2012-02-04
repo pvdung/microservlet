@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sokolov.microservlet.annotation.DispatchMethod;
 import com.sokolov.microservlet.dto.ValidationError;
 
 /**
@@ -19,7 +20,7 @@ public class MicroServlet extends AbstractMicroServlet {
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
+	@DispatchMethod
 	protected void doView(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
