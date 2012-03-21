@@ -4,8 +4,8 @@
   <groupId>com.sokolov</groupId>
   <artifactId>microservlet</artifactId>
   <version>1.1.1</version>
-  <name>microservlet</name>
 
+  <name>microservlet</name>
   <url>http://code.google.com/p/microservlet/</url>
   <organization>
     <name>Microservlet</name>
@@ -19,20 +19,11 @@
 
   <licenses>
     <license>
-      <name>Apache License 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
     </license>
   </licenses>
-
-  <mailingLists>
-    <mailingList>
-      <archive>http://groups.google.com/group/microservlet/</archive>
-      <name>Our discussion group</name>
-      <subscribe>http://groups.google.com/group/microservlet/</subscribe>
-      <unsubscribe>http://groups.google.com/group/microservlet/</unsubscribe>
-      <post>http://groups.google.com/group/microservlet/</post>
-    </mailingList>
-  </mailingLists>
 
   <developers>
     <developer>
@@ -43,7 +34,7 @@
         <role>Author</role>
         <role>Software Architect</role>
       </roles>
-      <organization>--</organization>
+      <organization>AjaxPortal Team</organization>
       <organizationUrl>http://groups.google.com/group/microservlet/</organizationUrl>
       <timezone></timezone>
     </developer>
@@ -51,10 +42,10 @@
       <id>02</id>
       <name>Helio Frota</name>
       <email>heliofrota@gmail.com</email>
-      <organization>--</organization>
+      <organization>AjaxPortal Team</organization>
       <organizationUrl>http://groups.google.com/group/microservlet/</organizationUrl>
       <roles>
-        <role>Software Architect</role>
+        <role>Java Developer</role>
       </roles>
       <timezone></timezone>
     </developer>
@@ -85,10 +76,6 @@
                 <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
                 <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
               </configuration>
-              <!-- we can choose the reports later... -->
-              <!-- <reportSets> <reportSet> <reports> <report>dependencies</report>
-                <report>project-team</report> <report>mailing-list</report> <report>license</report>
-                <report>scm</report> </reports> </reportSet> </reportSets> -->
             </plugin>
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
