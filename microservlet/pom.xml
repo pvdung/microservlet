@@ -25,6 +25,10 @@
     </license>
   </licenses>
 
+  <scm>
+    <url>http://microservlet.googlecode.com/svn/trunk/</url>
+  </scm>
+
   <developers>
     <developer>
       <id>01</id>
